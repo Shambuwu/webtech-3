@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .memory-score{
+            border: dot-dash 2px black;
+            text-align: center;
+        }
+        .memory-grid{
+            display: grid;
+            grid-template-columns: repeat(6, 100px);
+            grid-template-rows: repeat(6, 100px);
+        }
+        .memory-grid div{
+            background-color: rgba(127, 255, 212, 0.5);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 40px;
+            border: 3px solid white;
+        }
+        .board{
+            display: inline-block;
+        }
+        .content{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .sub-content{
+            align-items: center;
+        }
+        .memory-information{
+            display: inline-block;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<title>
+    Memory
+</title>
+<main>
+    <div class="content">
+
+        <div class="sub-content">
+            <div class="memory-score">
+                <p>Time spent: 0</p>
+                <p>Amount of pairs found:</p>
+                <p>Time remaining: 999</p>
+            </div>
+            <div class="board">
+                <div class="memory-grid">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                    <div>21</div>
+                    <div>22</div>
+                    <div>23</div>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                    <div>31</div>
+                    <div>32</div>
+                    <div>33</div>
+                    <div>34</div>
+                    <div>35</div>
+                    <div>36</div>
+                </div>
+            </div>
+        </div>
+        <div class="memory-information">
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>deze noten</li>
+            </ol>
+            <p>Average time: 5</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>
