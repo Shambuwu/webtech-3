@@ -5,8 +5,12 @@
     <title>Title</title>
     <style>
         .memory-score{
-            border: dot-dash 2px black;
+            display: flex;
             text-align: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px black;
+            margin: 5px;
         }
         .memory-grid{
             display: grid;
@@ -35,7 +39,8 @@
             font-family: "Comic Sans MS", "Comic Sans", cursive;
         }
         .sub-content{
-            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
         .memory-information{
             display: inline-block;
@@ -43,12 +48,26 @@
             margin-left: 50px;
             margin-right: 50px;
         }
+        .hourglass{
+            background-color: green;
+            margin: 5%;
+            height: 70%;
+            width: 100%;
+
+        }
+        .hourglass-casing{
+            width: 200px;
+            height: 40px;
+            background-color: grey;
+            display: flex;
+            align-items: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-<title>
-    Memory
-</title>
 <main>
     <div class="content">
         <div class="sub-content">
@@ -57,6 +76,9 @@
                 <p>Time spent: 0</p>
                 <p>Amount of pairs found:</p>
                 <p>Time remaining: 999</p>
+                <div class="hourglass-casing">
+                    <div class="hourglass"></div>
+                </div>
             </div>
             <div class="board">
                 <div class="memory-grid">
@@ -108,7 +130,38 @@
                 <li>deze noten</li>
             </ol>
             <p>Average time: 5</p>
+            <br>
+            <p class="bold">Karakter op Kaarten:
+                <select id="card-character" name="card-character">
+                    <option value="Cijfers" selected>Cijfers</option>
+                    <option value="Laban">Laban</option>
+                    <option value="Juice">Juice</option>
+                    <option value="Leuwol">Leuwol</option>
+                </select>
+            </p>
+            <p class="bold">Afmeting bord:
+                <select name="board-size">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option selected>6</option>
+                </select>
+            </p>
+            <p class="bold">Kaartkleur:
+                <input type="color" value="#ff0000">
+            </p>
+            <p class="bold">Open:
+                <input type="color" value="#ff0000">
+            </p>
+            <p class="bold">Gevonden:
+                <input type="color" value="#ff0000">
+            </p>
+
+            <button>nieuw spel</button>
         </div>
+
     </div>
 </main>
 </body>
