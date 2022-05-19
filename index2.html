@@ -18,15 +18,14 @@
             grid-template-rows: repeat(6, 100px);
         }
         .memory-grid div{
-            background-color: rgba(127, 255, 212, 0.5);
+            background-color: #ccffe6;
             width: 100px;
             height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            font-size: 40px;
             border: 3px solid white;
+            font-size: 40px;
         }
         .board{
             display: inline-block;
@@ -50,8 +49,8 @@
         }
         .hourglass{
             background-color: green;
-            margin: 5%;
-            height: 70%;
+            margin: 4%;
+            height: 75%;
             width: 100%;
 
         }
@@ -64,6 +63,20 @@
         }
         .bold {
             font-weight: bold;
+        }
+        .memory-card{
+            background-color: #ccffe6;
+            width: 100%;
+            height: 100%;
+            font: inherit;
+            cursor: pointer;
+            border: none;
+        }
+        .memory-card:hover{
+            background-color: #99ffcc;
+        }
+        .memory-card:active{
+            background-color: #3399ff;
         }
     </style>
 </head>
@@ -82,42 +95,42 @@
             </div>
             <div class="board">
                 <div class="memory-grid">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                    <div>10</div>
-                    <div>11</div>
-                    <div>12</div>
-                    <div>13</div>
-                    <div>14</div>
-                    <div>15</div>
-                    <div>16</div>
-                    <div>17</div>
-                    <div>18</div>
-                    <div>19</div>
-                    <div>20</div>
-                    <div>21</div>
-                    <div>22</div>
-                    <div>23</div>
-                    <div>24</div>
-                    <div>25</div>
-                    <div>26</div>
-                    <div>27</div>
-                    <div>28</div>
-                    <div>29</div>
-                    <div>30</div>
-                    <div>31</div>
-                    <div>32</div>
-                    <div>33</div>
-                    <div>34</div>
-                    <div>35</div>
-                    <div>36</div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">2</button></div>
+                    <div><button class="memory-card">3</button></div>
+                    <div><button class="memory-card">4</button></div>
+                    <div><button class="memory-card">5</button></div>
+                    <div><button class="memory-card">6</button></div>
+                    <div><button class="memory-card">7</button></div>
+                    <div><button class="memory-card">8</button></div>
+                    <div><button class="memory-card">9</button></div>
+                    <div><button class="memory-card">10</button></div>
+                    <div><button class="memory-card">11</button></div>
+                    <div><button class="memory-card">12</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
+                    <div><button class="memory-card">1</button></div>
                 </div>
             </div>
         </div>
@@ -150,13 +163,13 @@
                 </select>
             </p>
             <p class="bold">Kaartkleur:
-                <input type="color" value="#ff0000">
+                <input type="color" id="cardColor" name="cardColor" value="#ccffe6">
             </p>
             <p class="bold">Open:
-                <input type="color" value="#ff0000">
+                <input type="color" id="cardColor-open" name="cardColor-open" value="#99ffcc">
             </p>
             <p class="bold">Gevonden:
-                <input type="color" value="#ff0000">
+                <input type="color" id="cardColor-found" name="cardColor-found" value="#3399ff">
             </p>
 
             <button>nieuw spel</button>
