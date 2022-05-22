@@ -6,12 +6,13 @@
     <style>
         main {
             margin: 0 auto;
-            font-family: "Candara", cursive;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
         }
 
         .content {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-evenly;
             width: 100%;
             gap: 15px;
         }
@@ -21,9 +22,12 @@
         }
 
         .memory-score-content{
+            display: flex;
             text-align: center;
+            flex-direction: column;
             margin: 0 auto;
             width: 35%;
+            align-items: center;
         }
 
         .board {
@@ -58,7 +62,7 @@
         }
 
         .memory-information {
-            margin-bottom: 20%;
+            margin-bottom: 90px;
         }
 
         .hourglass {
@@ -118,7 +122,7 @@
 
             .memory-scoreboard{
                 margin: 5px auto 0;
-                width: 30%;
+                width: 320px;
             }
 
             .memory-information {
@@ -150,7 +154,7 @@
         <div class="board">
             <header class="memory-score">
                 <div class="memory-score-content">
-                    <h1>Javascript memory</h1>
+                    <h1>Memory</h1>
                     <p>Time spent: 0<br/>
                         Amount of pairs found:<br/>
                         Time remaining: 999</p>
