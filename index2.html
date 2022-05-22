@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1100px) {
             body {
                 background-color: lightblue;
             }
 
-            .fill {
-                display: none;
-            }
             .memory-scoreboard{
                 margin-top: 5px;
                 margin-left: auto;
                 margin-right: auto;
                 width: 50%;
+            }
+            .board{
+                width: 100%;
             }
         }
 
@@ -29,23 +29,25 @@
             display: flex;
             flex-wrap: wrap;
             width: 100%;
+            gap: 15px;
         }
 
         .memory-score {
-            text-align: center;
             width: 100%;
         }
 
+        .memory-score-content{
+            text-align: center;
+            margin: 0 auto;
+            width: 35%;
+        }
+
         .board {
-            margin: auto;
             width: fit-content;
         }
 
         .memory-scoreboard {
-            width: 30%;
-        }
-
-        .fill {
+            margin-top: 170px;
             width: 30%;
         }
 
@@ -88,7 +90,6 @@
             background-color: grey;
             display: flex;
             align-items: center;
-            margin: 0 auto;
         }
 
         .bold {
@@ -129,18 +130,20 @@
 </head>
 <body>
 <main>
-    <div class="content">
-        <div class="memory-score">
-            <h1>Javascript memory</h1>
-            <p>Time spent: 0<br/>
-                Amount of pairs found:<br/>
-                Time remaining: 999</p>
-            <div class="hourglass-casing">
-                <div class="hourglass"></div>
-            </div>
-        </div>
+    <section class="content">
         <div class="fill"></div>
         <div class="board">
+            <header class="memory-score">
+                <div class="memory-score-content">
+                    <h1>Javascript memory</h1>
+                    <p>Time spent: 0<br/>
+                        Amount of pairs found:<br/>
+                        Time remaining: 999</p>
+                    <div class="hourglass-casing">
+                        <div class="hourglass"></div>
+                    </div>
+                </div>
+            </header>
             <div class="memory-grid">
                 <div>
                     <button class="memory-card">1</button>
@@ -252,22 +255,20 @@
                 </div>
             </div>
         </div>
-        <div class="memory-scoreboard">
-            <label class="bold">
-                Top vijf
-            </label>
-            <ol>
-                <li>Barack Obama</li>
-                <li>Bernie Sanders</li>
-                <li>Hillary Clinton</li>
-                <li>Donald Trump</li>
-                <li>Jeb Bush</li>
+        <aside class="memory-scoreboard">
+            <p class="bold">Top vijf</p>
+            <ol role="list" aria-expanded="true">
+                <li role="listitem">Barack Obama</li>
+                <li role="listitem">Bernie Sanders</li>
+                <li role="listitem">Hillary Clinton</li>
+                <li role="listitem">Donald Trump</li>
+                <li role="listitem">Jeb Bush</li>
             </ol>
             <div class="memory-information">
                 <p class="bold">Average time: 5</p>
                 <br>
                 <p class="bold">Karakter op Kaarten:
-                    <select id="card-character" name="card-character">
+                    <select role="combobox" id="card-character" name="card-character">
                         <option value="Cijfers" selected>Cijfers</option>
                         <option value="Laban">Laban</option>
                         <option value="Juice">Juice</option>
@@ -275,7 +276,7 @@
                     </select>
                 </p>
                 <p class="bold">Afmeting bord:
-                    <select name="board-size">
+                    <select role="combobox" name="board-size">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -288,20 +289,20 @@
             <div class="selectors">
                 <div class="button">
                     <button>Kaartkleur</button>
-                    <input type="color" id="cardColor" name="cardColor" value="#CCFFE6">
+                    <input type="color" name="cardColor" value="#CCFFE6">
                 </div>
                 <div class="button">
                     <button>Open</button>
-                    <input type="color" id="cardColor" name="cardColor" value="#CCFFE6">
+                    <input type="color" name="cardColor" value="#CCFFE6">
                 </div>
                 <div class="button">
                     <button>Gevonden</button>
-                    <input type="color" id="cardColor" name="cardColor" value="#800080">
+                    <input type="color" name="cardColor" value="#800080">
                 </div>
             </div>
             <button style="display: block;">Nieuw Spel</button>
-        </div>
-    </div>
+        </aside>
+    </section>
 </main>
 </body>
 </html>
