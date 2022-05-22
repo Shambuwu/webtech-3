@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .memory-score{
-            display: flex;
+        main {
+            margin: 0 auto;
+            font-family: "Candara", cursive;
+        }
+
+        .memory-score {
+            display: block;
             text-align: center;
             align-items: center;
             flex-direction: column;
             border: 2px black;
-            margin: 5px;
+            margin: 0 auto;
+            width: 50%;
         }
-        .memory-grid{
+
+        p {
+            margin: 0;
+        }
+
+        .memory-grid {
             display: grid;
             grid-template-columns: repeat(6, 100px);
             grid-template-rows: repeat(6, 100px);
         }
-        .memory-grid div{
+
+        .memory-grid div {
             background-color: #ccffe6;
             width: 100px;
             height: 100px;
@@ -27,44 +39,47 @@
             border: 3px solid white;
             font-size: 40px;
         }
-        .board{
+
+        .board {
             display: inline-block;
+            width: 70%;
         }
-        .content{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-wrap: wrap;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-        }
-        .sub-content{
-            display: flex;
-            flex-direction: column;
-        }
-        .memory-information{
+
+        .content {
             display: inline-block;
-            float: right;
-            margin-left: 50px;
-            margin-right: 50px;
+            width: 100%;
         }
-        .hourglass{
+
+        .memory-scoreboard {
+            display: inline-block;
+            width: 25%;
+        }
+
+        .memory-information {
+            margin-bottom: 20%;
+        }
+
+        .hourglass {
             background-color: green;
             margin: 4%;
             height: 75%;
             width: 100%;
-
         }
-        .hourglass-casing{
+
+        .hourglass-casing {
             width: 200px;
             height: 40px;
             background-color: grey;
             display: flex;
             align-items: center;
+            margin: 0 auto;
         }
+
         .bold {
             font-weight: bold;
         }
-        .memory-card{
+
+        .memory-card {
             background-color: #ccffe6;
             width: 100%;
             height: 100%;
@@ -72,109 +87,204 @@
             cursor: pointer;
             border: none;
         }
-        .memory-card:hover{
+
+        .memory-card:hover {
             background-color: #99ffcc;
         }
-        .memory-card:active{
+
+        .memory-card:active {
             background-color: #3399ff;
+        }
+
+        .selectors {
+            display: inline-block;
+            margin: 50px 0;
+        }
+
+        .button button {
+            width: 100px;
+            display: inline-block;
+        }
+
+        .button input {
+            width: 200px;
         }
     </style>
 </head>
 <body>
 <main>
     <div class="content">
-        <div class="sub-content">
-            <div class="memory-score">
-                <h1>Bart Barnard Gaming</h1>
-                <p>Time spent: 0</p>
-                <p>Amount of pairs found:</p>
-                <p>Time remaining: 999</p>
-                <div class="hourglass-casing">
-                    <div class="hourglass"></div>
-                </div>
+        <div class="memory-score">
+            <h1>Javascript memory</h1>
+            <p>Time spent: 0<br/>
+                Amount of pairs found:<br/>
+                Time remaining: 999</p>
+            <div class="hourglass-casing">
+                <div class="hourglass"></div>
             </div>
-            <div class="board">
-                <div class="memory-grid">
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">2</button></div>
-                    <div><button class="memory-card">3</button></div>
-                    <div><button class="memory-card">4</button></div>
-                    <div><button class="memory-card">5</button></div>
-                    <div><button class="memory-card">6</button></div>
-                    <div><button class="memory-card">7</button></div>
-                    <div><button class="memory-card">8</button></div>
-                    <div><button class="memory-card">9</button></div>
-                    <div><button class="memory-card">10</button></div>
-                    <div><button class="memory-card">11</button></div>
-                    <div><button class="memory-card">12</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
-                    <div><button class="memory-card">1</button></div>
+        </div>
+        <div style="width: 30%;"></div>
+        <div class="board">
+            <div class="memory-grid">
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">2</button>
+                </div>
+                <div>
+                    <button class="memory-card">3</button>
+                </div>
+                <div>
+                    <button class="memory-card">4</button>
+                </div>
+                <div>
+                    <button class="memory-card">5</button>
+                </div>
+                <div>
+                    <button class="memory-card">6</button>
+                </div>
+                <div>
+                    <button class="memory-card">7</button>
+                </div>
+                <div>
+                    <button class="memory-card">8</button>
+                </div>
+                <div>
+                    <button class="memory-card">9</button>
+                </div>
+                <div>
+                    <button class="memory-card">10</button>
+                </div>
+                <div>
+                    <button class="memory-card">11</button>
+                </div>
+                <div>
+                    <button class="memory-card">12</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
+                </div>
+                <div>
+                    <button class="memory-card">1</button>
                 </div>
             </div>
         </div>
-        <div class="memory-information">
+        <div class="memory-scoreboard">
+            <label class="bold">
+                Top vijf
+            </label>
             <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li>deze noten</li>
+                <li>Barack Obama</li>
+                <li>Bernie Sanders</li>
+                <li>Hillary Clinton</li>
+                <li>Donald Trump</li>
+                <li>Jeb Bush</li>
             </ol>
-            <p>Average time: 5</p>
-            <br>
-            <p class="bold">Karakter op Kaarten:
-                <select id="card-character" name="card-character">
-                    <option value="Cijfers" selected>Cijfers</option>
-                    <option value="Laban">Laban</option>
-                    <option value="Juice">Juice</option>
-                    <option value="Leuwol">Leuwol</option>
-                </select>
-            </p>
-            <p class="bold">Afmeting bord:
-                <select name="board-size">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option selected>6</option>
-                </select>
-            </p>
-            <p class="bold">Kaartkleur:
-                <input type="color" id="cardColor" name="cardColor" value="#ccffe6">
-            </p>
-            <p class="bold">Open:
-                <input type="color" id="cardColor-open" name="cardColor-open" value="#99ffcc">
-            </p>
-            <p class="bold">Gevonden:
-                <input type="color" id="cardColor-found" name="cardColor-found" value="#3399ff">
-            </p>
-
-            <button>nieuw spel</button>
+            <div class="memory-information">
+                <p class="bold">Average time: 5</p>
+                <br>
+                <p class="bold">Karakter op Kaarten:
+                    <select id="card-character" name="card-character">
+                        <option value="Cijfers" selected>Cijfers</option>
+                        <option value="Laban">Laban</option>
+                        <option value="Juice">Juice</option>
+                        <option value="Leuwol">Leuwol</option>
+                    </select>
+                </p>
+                <p class="bold">Afmeting bord:
+                    <select name="board-size">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option selected>6</option>
+                    </select>
+                </p>
+            </div>
+            <div class="selectors">
+                <div class="button">
+                    <button>Kaartkleur</button>
+                    <input type="color" id="cardColor" name="cardColor" value="#CCFFE6">
+                </div>
+                <div class="button">
+                    <button>Open</button>
+                    <input type="color" id="cardColor" name="cardColor" value="#CCFFE6">
+                </div>
+                <div class="button">
+                    <button>Gevonden</button>
+                    <input type="color" id="cardColor" name="cardColor" value="#800080">
+                </div>
+            </div>
+            <button style="display: block;">Nieuw Spel</button>
         </div>
-
     </div>
 </main>
 </body>
