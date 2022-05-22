@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        @media only screen and (max-width: 1000px) {
+            body {
+                background-color: lightblue;
+            }
+
+            .fill {
+                display: none;
+            }
+            .memory-scoreboard{
+                margin-top: 5px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+        }
+
         main {
             margin: 0 auto;
             font-family: "Candara", cursive;
@@ -26,6 +42,10 @@
         }
 
         .memory-scoreboard {
+            width: 30%;
+        }
+
+        .fill {
             width: 30%;
         }
 
@@ -119,7 +139,7 @@
                 <div class="hourglass"></div>
             </div>
         </div>
-        <div style="width: 30%"></div>
+        <div class="fill"></div>
         <div class="board">
             <div class="memory-grid">
                 <div>
