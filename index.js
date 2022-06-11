@@ -40,7 +40,7 @@ function flipCard() {
         hasFlippedCard = false;
     }
 
-    if (firstCard.innerText[2] === secondCard.innerText[2]) {
+    if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
     } else {
@@ -54,6 +54,11 @@ function flipCard() {
     }
 }
 
+let test = [];
+
 cards.forEach(card => {
+    test.push(card.innerText.split("\n")[1]);
     card.addEventListener("click", flipCard);
 })
+
+console.log(test);
