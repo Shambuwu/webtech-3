@@ -109,16 +109,17 @@ p {
     transform: rotateY(180deg);
 }
 
-.found {
-    background-color: #800080;
-    transform: rotateY(180deg);
-}
-
 .front-face:hover {
     background-color: #99ffcc;
 }
 
+.found {
+    background-color: #800080 !important;
+    transform: rotateY(180deg);
+}
+
 .memory-card.flip {
+    background-color: lightcoral;
     transform: rotateY(180deg);
 }
 
