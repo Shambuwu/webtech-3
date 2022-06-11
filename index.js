@@ -22,7 +22,6 @@ backFaces.forEach((face, index) => {
     face.innerHTML = randomLetters[index];
 })
 
-let lockBoard = false;
 let hasFlippedCard = false;
 let hasSecondFlippedCard = false;
 let firstCard, secondCard;
@@ -33,14 +32,17 @@ function flipCard() {
 
     if (!hasFlippedCard) {
         this.removeEventListener("click", flipCard);
+        console.log("hasFlippedCard!")
         hasFlippedCard = true;
         firstCard = this;
     } else if (!hasSecondFlippedCard) {
         this.removeEventListener("click", flipCard);
+        console.log("hasSecondFlippedCard!")
         hasSecondFlippedCard = true;
         secondCard = this;
         checkMatch()
     } else {
+        console.log("Else!");
         firstCard.classList.remove("flip");
         firstCard.addEventListener("click", flipCard);
         secondCard.classList.remove("flip");
@@ -59,6 +61,8 @@ function checkMatch() {
         firstCard.classList.add("found");
         secondCard.removeEventListener("click", flipCard);
         secondCard.classList.add("found");
+        hasFlippedCard = false;
+        hasSecondFlippedCard = false;
         return true;
     }
     return false;
