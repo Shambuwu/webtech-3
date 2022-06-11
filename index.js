@@ -41,8 +41,11 @@ function flipCard() {
     }
 
     if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
+        console.log(firstCard.innerText.split("\n")[1] + " == " + secondCard.innerText.split("\n")[1])
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
+        firstCard.classList.add("found");
+        secondCard.classList.add("found");
     } else {
         lockBoard = true;
         setTimeout(() => {
@@ -54,11 +57,6 @@ function flipCard() {
     }
 }
 
-let test = [];
-
 cards.forEach(card => {
-    test.push(card.innerText.split("\n")[1]);
     card.addEventListener("click", flipCard);
 })
-
-console.log(test);
