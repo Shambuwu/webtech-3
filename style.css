@@ -101,6 +101,11 @@ p {
     transform: rotateY(180deg);
 }
 
+.found {
+    background-color: lightcoral;
+    transform: rotateY(180deg);
+}
+
 .memory-card:hover {
     background-color: #99ffcc;
     transform: scale(1.1);
