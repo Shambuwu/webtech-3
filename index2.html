@@ -3,322 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        main {
-            margin: 0 auto;
-            font-family: "Candara", sans-serif;
-        }
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            width: 100%;
-            gap: 15px;
-        }
-
-        .memory-score {
-            width: 100%;
-        }
-
-        .memory-score-content{
-            display: flex;
-            text-align: center;
-            flex-direction: column;
-            margin: 0 auto;
-            width: 35%;
-            align-items: center;
-        }
-
-        .board {
-            width: fit-content;
-        }
-
-        .memory-scoreboard {
-            margin-top: 170px;
-            width: 30%;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        .memory-grid {
-            width: fit-content;
-            align-self: center;
-            display: grid;
-            grid-template-columns: repeat(6, 100px);
-            grid-template-rows: repeat(6, 100px);
-        }
-
-        .memory-grid div {
-            background-color: #ccffe6;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            border: 3px solid white;
-            font-size: 30px;
-        }
-
-        .memory-information {
-            margin-bottom: 90px;
-        }
-
-        .hourglass {
-            background-color: green;
-            margin: 5%;
-            height: 75%;
-            width: 100%;
-        }
-
-        .hourglass-casing {
-            width: 200px;
-            height: 30px;
-            background-color: grey;
-            display: flex;
-            align-items: center;
-        }
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .memory-card {
-            background-color: #ccffe6;
-            width: 100%;
-            height: 100%;
-            font: inherit;
-            cursor: pointer;
-            border: none;
-        }
-
-        .memory-card:hover {
-            background-color: #99ffcc;
-        }
-
-        .memory-card:active {
-            background-color: #3399ff;
-        }
-
-        .selectors {
-            display: inline-block;
-            margin: 50px 0;
-        }
-
-        .button button {
-            width: 100px;
-            display: inline-block;
-        }
-
-        .button input {
-            width: 200px;
-        }
-
-        @media only screen and (max-width: 1100px) {
-            .memory-scoreboard{
-                margin: 5px auto 0;
-                width: 30%;
-            }
-
-            .memory-information {
-                margin-bottom: 0;
-            }
-
-            .board {
-                width: 100%;
-            }
-
-            .memory-grid {
-                margin: 0 auto;
-            }
-
-            .memory-score-content {
-                width: 100%;
-            }
-
-            .hourglass-casing {
-                margin: 0 auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <section class="content">
-            <div class="fill"></div>
-            <div class="board">
-                <header class="memory-score">
-                    <div class="memory-score-content">
-                        <h1>Javascript Memory</h1>
-                        <p>Time spent: 0<br/>
-                            Amount of pairs found:<br/>
-                            Time remaining: 999</p>
-                        <div class="hourglass-casing">
-                            <div class="hourglass"></div>
-                        </div>
+<main>
+    <section class="content">
+        <div class="fill"></div>
+        <div class="board">
+            <header class="memory-score">
+                <div class="memory-score-content">
+                    <h1>Javascript Memory</h1>
+                    <p>Time spent: 0<br/>
+                        Amount of pairs found:<br/>
+                        Time remaining: 999</p>
+                    <div class="hourglass-casing">
+                        <div class="hourglass"></div>
                     </div>
-                </header>
-                <div class="memory-grid">
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">1</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">2</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">3</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">4</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">5</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">6</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">7</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">8</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">9</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">10</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">11</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">12</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">13</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">14</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">15</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">16</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">17</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">18</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">19</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">20</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">21</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">22</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">23</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">24</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">25</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">26</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">27</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">28</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">29</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">30</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">31</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">32</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">33</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">34</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">35</button>
-                    </div>
-                    <div>
-                        <button class="memory-card" aria-label="Memory kaart">36</button>
-                    </div>
+                </div>
+            </header>
+            <div class="memory-grid">
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">1</div>
+                    <div class="back-face">aaaa!</div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">2</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">3</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">4</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">5</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">6</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">7</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">8</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">9</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">10</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">11</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">12</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">13</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">14</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">15</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">16</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">17</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">18</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">19</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">20</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">21</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">22</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">23</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">24</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">25</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">26</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">27</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">28</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">29</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">30</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">31</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">32</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">33</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">34</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">35</div>
+                    <div class="back-face"></div>
+                </div>
+                <div class="memory-card" aria-label="Memory kaart">
+                    <div class="front-face">36</div>
+                    <div class="back-face"></div>
                 </div>
             </div>
-            <aside class="memory-scoreboard">
-                <p class="bold">Top vijf</p>
-                <ol role="list" aria-expanded="true">
-                    <li role="listitem">Barack Obama</li>
-                    <li role="listitem">Bernie Sanders</li>
-                    <li role="listitem">Hillary Clinton</li>
-                    <li role="listitem">Donald Trump</li>
-                    <li role="listitem">Jeb Bush</li>
-                </ol>
-                <div class="memory-information">
-                    <p class="bold">Average time: 5</p>
-                    <br>
-                    <p class="bold">Karakter op Kaarten:
-                        <select role="combobox" id="card-character" name="card-character">
-                            <option value="Cijfers" selected>Cijfers</option>
-                            <option value="Optie2">Optie 2</option>
-                            <option value="Optie3">Optie 3</option>
-                            <option value="Optie4">Optie 4</option>
-                        </select>
-                    </p>
-                    <p class="bold">Afmeting bord:
-                        <select role="combobox" name="board-size">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option selected>6</option>
-                        </select>
-                    </p>
+        </div>
+        <aside class="memory-scoreboard">
+            <p class="bold">Top vijf</p>
+            <ol role="list" aria-expanded="true">
+                <li role="listitem">Barack Obama</li>
+                <li role="listitem">Bernie Sanders</li>
+                <li role="listitem">Hillary Clinton</li>
+                <li role="listitem">Donald Trump</li>
+                <li role="listitem">Jeb Bush</li>
+            </ol>
+            <div class="memory-information">
+                <p class="bold">Average time: 5</p>
+                <br>
+                <p class="bold">Karakter op Kaarten:
+                    <select role="combobox" id="card-character" name="card-character">
+                        <option value="Cijfers" selected>Cijfers</option>
+                        <option value="Optie2">Optie 2</option>
+                        <option value="Optie3">Optie 3</option>
+                        <option value="Optie4">Optie 4</option>
+                    </select>
+                </p>
+                <p class="bold">Afmeting bord:
+                    <select role="combobox" name="board-size">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option selected>6</option>
+                    </select>
+                </p>
+            </div>
+            <div class="selectors">
+                <div class="button">
+                    <button aria-label="Kaartkleur bevestigen knop">Kaartkleur</button>
+                    <input type="color" name="cardColor" value="#CCFFE6">
                 </div>
-                <div class="selectors">
-                    <div class="button">
-                        <button aria-label="Kaartkleur bevestigen knop">Kaartkleur</button>
-                        <input type="color" name="cardColor" value="#CCFFE6">
-                    </div>
-                    <div class="button">
-                        <button aria-label="Open kaartkleur bevestigen knop">Open</button>
-                        <input type="color" name="cardColor" value="#CCFFE6">
-                    </div>
-                    <div class="button">
-                        <button aria-label="Gevonden kaartkleur bevestigen knop">Gevonden</button>
-                        <input type="color" name="cardColor" value="#800080">
-                    </div>
+                <div class="button">
+                    <button aria-label="Open kaartkleur bevestigen knop">Open</button>
+                    <input type="color" name="cardColor" value="#CCFFE6">
                 </div>
-                <button style="display: block;">Nieuw Spel</button>
-            </aside>
-        </section>
-    </main>
+                <div class="button">
+                    <button aria-label="Gevonden kaartkleur bevestigen knop">Gevonden</button>
+                    <input type="color" name="cardColor" value="#800080">
+                </div>
+            </div>
+            <button style="display: block;">Nieuw Spel</button>
+        </aside>
+    </section>
+</main>
 </body>
 
 <script src="index.js" async></script>

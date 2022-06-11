@@ -1,0 +1,154 @@
+main {
+    margin: 0 auto;
+    font-family: "Candara", sans-serif;
+    user-select: none;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 15px;
+}
+
+.memory-score {
+    width: 100%;
+}
+
+.memory-score-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 35%;
+    align-items: center;
+}
+
+.board {
+    width: fit-content;
+}
+
+.memory-scoreboard {
+    margin-top: 170px;
+    width: 30%;
+}
+
+p {
+    margin: 0;
+}
+
+.memory-information {
+    margin-bottom: 90px;
+}
+
+.hourglass {
+    background-color: green;
+    margin: 5%;
+    height: 75%;
+    width: 100%;
+}
+
+.hourglass-casing {
+    width: 200px;
+    height: 30px;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.memory-grid {
+    width: fit-content;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    perspective: 1000px;
+}
+
+.memory-card {
+    background-color: #ccffe6;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+    font-size: 30px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: default;
+}
+
+.back-face,
+.front-face {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    user-select: none;
+}
+
+.back-face {
+    background-color: #800080;
+    transform: rotateY(180deg);
+}
+
+.memory-card:hover {
+    background-color: #99ffcc;
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.selectors {
+    display: inline-block;
+    margin: 50px 0;
+}
+
+.button button {
+    width: 100px;
+    display: inline-block;
+}
+
+.button input {
+    width: 200px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .memory-scoreboard {
+        margin: 5px auto 0;
+        width: 30%;
+    }
+
+    .memory-information {
+        margin-bottom: 0;
+    }
+
+    .board {
+        width: 100%;
+    }
+
+    .memory-grid {
+        margin: 0 auto;
+    }
+
+    .memory-score-content {
+        width: 100%;
+    }
+
+    .hourglass-casing {
+        margin: 0 auto;
+    }
+}

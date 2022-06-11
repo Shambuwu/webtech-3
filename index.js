@@ -14,8 +14,18 @@ for (let i = 0; randomLetters.length < numberOfCards/2; i++){
 randomLetters = randomLetters.concat(randomLetters);
 console.log(randomLetters);
 
-const memoryCard = document.getElementsByClassName("memory-card");
+const cards = document.querySelectorAll(".memory-card");
+const backFaces = document.querySelectorAll(".back-face")
 
-for(let i = 0; i < memoryCard.length; i++){
-    memoryCard[i].innerHTML=randomLetters[i];
-}
+backFaces.forEach((face, index) => {
+    face.innerHTML=randomLetters[index];
+})
+
+cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+        cards.forEach(function (c) {
+            if (c !== card) c.classList.remove('flip');
+            else c.classList.toggle('flip');
+        });
+    });
+});
