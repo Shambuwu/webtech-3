@@ -24,37 +24,44 @@ backFaces.forEach((face, index) => {
 
 let lockBoard = false;
 let hasFlippedCard = false;
+let hasSecondFlippedCard = false;
 let firstCard, secondCard;
 
 function flipCard() {
-    if (lockBoard) return;
+    this.removeEventListener("click", flipCard);
     this.classList.add("flip");
 
     if (!hasFlippedCard) {
         this.removeEventListener("click", flipCard);
         hasFlippedCard = true;
         firstCard = this;
-        return;
-    } else {
+    } else if (!hasSecondFlippedCard) {
+        this.removeEventListener("click", flipCard);
+        hasSecondFlippedCard = true;
         secondCard = this;
-        hasFlippedCard = false;
+        checkMatch()
+    } else {
+        firstCard.classList.remove("flip");
+        firstCard.addEventListener("click", flipCard);
+        secondCard.classList.remove("flip");
+        secondCard.addEventListener("click", flipCard);
+        hasFlippedCard = true;
+        hasSecondFlippedCard = false;
+        firstCard = this;
     }
+}
 
+
+function checkMatch() {
     if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
         console.log(firstCard.innerText.split("\n")[1] + " == " + secondCard.innerText.split("\n")[1])
         firstCard.removeEventListener("click", flipCard);
-        secondCard.removeEventListener("click", flipCard);
         firstCard.classList.add("found");
+        secondCard.removeEventListener("click", flipCard);
         secondCard.classList.add("found");
-    } else {
-        lockBoard = true;
-        setTimeout(() => {
-            firstCard.addEventListener("click", flipCard);
-            firstCard.classList.remove("flip");
-            secondCard.classList.remove("flip");
-            lockBoard = false;
-        }, 1500);
+        return true;
     }
+    return false;
 }
 
 cards.forEach(card => {
