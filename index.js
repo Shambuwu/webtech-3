@@ -25,6 +25,7 @@ backFaces.forEach((face, index) => {
 let hasFlippedCard = false;
 let hasSecondFlippedCard = false;
 let firstCard, secondCard;
+let amountOfFoundCards = 0;
 
 function flipCard() {
     this.removeEventListener("click", flipCard);
@@ -32,21 +33,23 @@ function flipCard() {
 
     if (!hasFlippedCard) {
         this.removeEventListener("click", flipCard);
-        console.log("hasFlippedCard!")
+
         hasFlippedCard = true;
         firstCard = this;
     } else if (!hasSecondFlippedCard) {
         this.removeEventListener("click", flipCard);
-        console.log("hasSecondFlippedCard!")
+
         hasSecondFlippedCard = true;
         secondCard = this;
+
         checkMatch()
     } else {
-        console.log("Else!");
         firstCard.classList.remove("flip");
         firstCard.addEventListener("click", flipCard);
+
         secondCard.classList.remove("flip");
         secondCard.addEventListener("click", flipCard);
+
         hasFlippedCard = true;
         hasSecondFlippedCard = false;
         firstCard = this;
@@ -54,18 +57,25 @@ function flipCard() {
 }
 
 
-function checkMatch() {
+const checkMatch = () => {
     if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
-        console.log(firstCard.innerText.split("\n")[1] + " == " + secondCard.innerText.split("\n")[1])
         firstCard.removeEventListener("click", flipCard);
         firstCard.classList.add("found");
+
         secondCard.removeEventListener("click", flipCard);
         secondCard.classList.add("found");
+
         hasFlippedCard = false;
         hasSecondFlippedCard = false;
-        return true;
+
+        amountOfFoundCards += 2;
+        console.log(amountOfFoundCards);
     }
-    return false;
+    if(amountOfFoundCards === 36){
+        setTimeout(() => {
+            alert("You won!");
+        }, 500);
+    }
 }
 
 cards.forEach(card => {
