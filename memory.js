@@ -9,17 +9,28 @@ let hasSecondFlippedCard = false;
 let firstCard, secondCard;
 let amountOfFoundCards = 0;
 
-for (let i = 0; randomLetters.length < numberOfCards / 2; i++) {
+for (let i = 0; randomLetters.length < numberOfCards; i++) {
     let x = alphabet[Math.floor(Math.random() * alphabet.length)];
-    let temp = true;
-    randomLetters.forEach(value => {
-        if (x === value) temp = false;
-    });
-    if (temp) {
+    if(!(randomLetters.includes(x))){
+        randomLetters.push(x);
         randomLetters.push(x);
     }
+
 }
-randomLetters = randomLetters.concat(randomLetters);
+
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+randomLetters = shuffle(randomLetters);
 
 backFaces.forEach((face, index) => {
     face.innerHTML = randomLetters[index];
@@ -28,18 +39,14 @@ backFaces.forEach((face, index) => {
 function flipCard() {
     this.removeEventListener("click", flipCard);
     this.classList.add("flip");
-
     if (!hasFlippedCard) {
         this.removeEventListener("click", flipCard);
-
         hasFlippedCard = true;
         firstCard = this;
     } else if (!hasSecondFlippedCard) {
         this.removeEventListener("click", flipCard);
-
         hasSecondFlippedCard = true;
         secondCard = this;
-
         checkMatch()
     } else {
         unflipCards();
