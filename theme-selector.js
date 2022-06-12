@@ -1,3 +1,14 @@
+const imageSelector = document.getElementById("image-selector");
+const frontFaces = document.querySelectorAll(".front-face")
+const colorPickers = document.querySelectorAll(".color-picker input")
+const imageUrls = {
+    None: null,
+    Random: "https://picsum.photos/200",
+    Dogs: "https://dog.ceo/api/breeds/image/random",
+    Cats: "https://api.thecatapi.com/v1/images/search"
+};
+let value;
+
 // Color picker
 
 const selectorTypes = {
@@ -5,7 +16,6 @@ const selectorTypes = {
     "color-picker-card-open": "--primary-open-color",
     "color-picker-card-found": "--primary-found-color"
 }
-const colorPickers = document.querySelectorAll(".color-picker input")
 
 function changeColor() {
     document.documentElement.style.setProperty(selectorTypes[this.id.toString()], this.value);
@@ -16,15 +26,6 @@ colorPickers.forEach((cp) => {
 })
 
 // Image Selector
-
-const imageSelector = document.getElementById("image-selector");
-const frontFaces = document.querySelectorAll(".front-face");
-const imageUrls = {
-    None: null,
-    Random: "https://picsum.photos/200",
-    Dogs: "https://dog.ceo/api/breeds/image/random",
-    Cats: "https://api.thecatapi.com/v1/images/search"
-};
 
 const setDogImages = () => {
     frontFaces.forEach((face) => {
@@ -80,7 +81,6 @@ function changeBackground(imageType) {
     }
 }
 
-let value;
 imageSelector.addEventListener("change", () => {
     value = imageSelector.options[imageSelector.selectedIndex].value;
     changeBackground(imageUrls[value]);

@@ -87,8 +87,6 @@ const displayWinMessage = (timeout) => {
     }, timeout);
 }
 
-resetButton[0].addEventListener("click", resetGame);
-
 function resetGame() {
     cards.forEach((card) => {
         card.classList.remove("flip", "found")
@@ -99,6 +97,8 @@ function resetGame() {
         secondCard = null;
     })
 }
+
+resetButton[0].addEventListener("click", resetGame);
 
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
