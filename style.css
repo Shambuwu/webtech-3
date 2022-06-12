@@ -97,6 +97,12 @@ p {
     z-index: 1;
 }
 
+.memory-card.flip {
+    background-color: var(--primary-open-color);
+    transform: rotateY(180deg);
+    z-index: 0 !important;
+}
+
 .back-face,
 .front-face {
     background-size: cover;
@@ -112,11 +118,6 @@ p {
 }
 
 .back-face {
-    transform: rotateY(180deg);
-}
-
-.memory-card.flip {
-    background-color: var(--primary-open-color);
     transform: rotateY(180deg);
 }
 
