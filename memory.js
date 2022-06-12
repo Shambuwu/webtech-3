@@ -44,38 +44,50 @@ function flipCard() {
 
         checkMatch()
     } else {
-        firstCard.classList.remove("flip");
-        firstCard.addEventListener("click", flipCard);
-
-        secondCard.classList.remove("flip");
-        secondCard.addEventListener("click", flipCard);
-
+        unflipCards();
         hasFlippedCard = true;
         hasSecondFlippedCard = false;
         firstCard = this;
     }
 }
 
+const unflipCards = () => {
+    firstCard.classList.remove("flip");
+    firstCard.addEventListener("click", flipCard);
+
+    secondCard.classList.remove("flip");
+    secondCard.addEventListener("click", flipCard);
+}
+
+const setFoundCards = () => {
+    firstCard.removeEventListener("click", flipCard);
+    firstCard.classList.add("found");
+
+    secondCard.removeEventListener("click", flipCard);
+    secondCard.classList.add("found");
+
+    hasFlippedCard = false;
+    hasSecondFlippedCard = false;
+
+    amountOfFoundCards += 2;
+}
 
 const checkMatch = () => {
+    console.log(firstCard.innerText.split("\n", )[1] + secondCard.innerText.split("\n")[1]);
     if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
-        firstCard.removeEventListener("click", flipCard);
-        firstCard.classList.add("found");
-
-        secondCard.removeEventListener("click", flipCard);
-        secondCard.classList.add("found");
-
-        hasFlippedCard = false;
-        hasSecondFlippedCard = false;
-
-        amountOfFoundCards += 2;
-        console.log(amountOfFoundCards);
+        setFoundCards()
+        return true;
     }
     if(amountOfFoundCards === 36){
-        setTimeout(() => {
-            alert("You won!");
-        }, 500);
+        displayWinMessage(500);
     }
+    return false;
+}
+
+const displayWinMessage = (timeout) => {
+    setTimeout(() => {
+        alert("You won!");
+    }, timeout);
 }
 
 cards.forEach(card => {
