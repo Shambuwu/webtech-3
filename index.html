@@ -184,11 +184,10 @@
                 <br>
                 <p class="bold">Plaatjes op Kaarten:
                     <label>
-                        <select class="image-selector" role="combobox" name="card-images">
-                            <option value="Cijfers" selected>Alfabet</option>
-                            <option value="Honden">Honden</option>
-                            <option value="Katten">Katten</option>
-                            <option value="Jdvkm">Jdvkm</option>
+                        <select class="image-selector" id="image-selector" role="combobox" name="card-images">
+                            <option value="Random" selected>Willekeurig</option>
+                            <option value="Dogs">Honden</option>
+                            <option value="Cats">Katten</option>
                         </select>
                     </label>
                 </p>
@@ -212,7 +211,7 @@
                 </div>
                 <div class="color-picker">
                     <label class="bold" aria-label="Open kaartkleur selector">Open</label>
-                    <input id="color-picker-card-open" type="color" name="cardColor" value="#CCFFE6">
+                    <input id="color-picker-card-open" type="color" name="cardColor" value="#FF8C8C">
                 </div>
                 <div class="color-picker">
                     <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>

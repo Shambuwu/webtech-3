@@ -13,7 +13,6 @@ for (let i = 0; randomLetters.length < numberOfCards / 2; i++) {
     }
 }
 randomLetters = randomLetters.concat(randomLetters);
-console.log(randomLetters);
 
 const cards = document.querySelectorAll(".memory-card");
 const backFaces = document.querySelectorAll(".back-face");
@@ -76,7 +75,6 @@ const setFoundCards = () => {
 }
 
 const checkMatch = () => {
-    console.log(firstCard.innerText.split("\n", )[1] + secondCard.innerText.split("\n")[1]);
     if (firstCard.innerText.split("\n")[1] === secondCard.innerText.split("\n")[1]) {
         setFoundCards()
         return true;
