@@ -1,3 +1,9 @@
+:root {
+    --primary-card-color: #ccffe6;
+    --primary-open-color: lightcoral;
+    --primary-found-color: #800080;
+}
+
 main {
     margin: 0 auto;
     font-family: "Candara", sans-serif;
@@ -71,7 +77,7 @@ p {
 }
 
 .memory-card {
-    background-color: #ccffe6;
+    background-color: var(--primary-card-color);
     width: 100%;
     height: 100%;
     display: flex;
@@ -109,17 +115,13 @@ p {
     transform: rotateY(180deg);
 }
 
-.front-face:hover {
-    background-color: #99ffcc;
-}
-
-.found {
-    background-color: #800080 !important;
+.memory-card.flip {
+    background-color: var(--primary-open-color);
     transform: rotateY(180deg);
 }
 
-.memory-card.flip {
-    background-color: lightcoral;
+.found {
+    background-color: var(--primary-found-color) !important;
     transform: rotateY(180deg);
 }
 
@@ -128,12 +130,12 @@ p {
     margin: 50px 0;
 }
 
-.button button {
+.color-picker label {
     width: 100px;
     display: inline-block;
 }
 
-.button input {
+.color-picker input {
     width: 200px;
 }
 

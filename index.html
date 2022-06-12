@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <script src="memory.js" async></script>
+    <script src="theme-selector.js" async></script>
 </head>
 <body>
 <main>
@@ -180,37 +182,41 @@
             <div class="memory-information">
                 <p class="bold">Average time: 5</p>
                 <br>
-                <p class="bold">Karakter op Kaarten:
-                    <select role="combobox" id="card-character" name="card-character">
-                        <option value="Cijfers" selected>Cijfers</option>
-                        <option value="Optie2">Optie 2</option>
-                        <option value="Optie3">Optie 3</option>
-                        <option value="Optie4">Optie 4</option>
-                    </select>
+                <p class="bold">Plaatjes op Kaarten:
+                    <label>
+                        <select class="image-selector" role="combobox" name="card-images">
+                            <option value="Cijfers" selected>Alfabet</option>
+                            <option value="Honden">Honden</option>
+                            <option value="Katten">Katten</option>
+                            <option value="Jdvkm">Jdvkm</option>
+                        </select>
+                    </label>
                 </p>
                 <p class="bold">Afmeting bord:
-                    <select role="combobox" name="board-size">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option selected>6</option>
-                    </select>
+                    <label>
+                        <select role="combobox" name="board-size">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option selected>6</option>
+                        </select>
+                    </label>
                 </p>
             </div>
             <div class="selectors">
-                <div class="button">
-                    <button aria-label="Kaartkleur bevestigen knop">Kaartkleur</button>
-                    <input type="color" name="cardColor" value="#CCFFE6">
+                <div class="color-picker">
+                    <label class="bold" aria-label="Kaartkleur bevestigen selector">Kaartkleur</label>
+                    <input id="color-picker-card" type="color" name="cardColor" value="#CCFFE6">
                 </div>
-                <div class="button">
-                    <button aria-label="Open kaartkleur bevestigen knop">Open</button>
-                    <input type="color" name="cardColor" value="#CCFFE6">
+                <div class="color-picker">
+                    <label class="bold" aria-label="Open kaartkleur selector">Open</label>
+                    <input id="color-picker-card-open" type="color" name="cardColor" value="#CCFFE6">
                 </div>
-                <div class="button">
-                    <button aria-label="Gevonden kaartkleur bevestigen knop">Gevonden</button>
-                    <input type="color" name="cardColor" value="#800080">
+                <div class="color-picker">
+                    <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>
+                    <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
                 </div>
             </div>
             <button style="display: block;">Nieuw Spel</button>
@@ -218,7 +224,4 @@
     </section>
 </main>
 </body>
-
-<script src="index.js" async></script>
-
 </html>
