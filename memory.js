@@ -1,7 +1,7 @@
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const cards = document.querySelectorAll(".memory-card");
 const backFaces = document.querySelectorAll(".back-face");
-const resetButton = document.querySelectorAll(".reset-button");
+const resetButton = document.querySelectorAll(".reset-button")[0];
 let randomLetters = [];
 let numberOfCards = 36;
 let hasFlippedCard = false;
@@ -98,7 +98,7 @@ function resetGame() {
     })
 }
 
-resetButton[0].addEventListener("click", resetGame);
+resetButton.addEventListener("click", resetGame);
 
 cards.forEach(card => {
     card.addEventListener("click", flipCard);

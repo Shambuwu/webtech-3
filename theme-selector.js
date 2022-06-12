@@ -1,21 +1,20 @@
 const imageSelector = document.getElementById("image-selector");
 const frontFaces = document.querySelectorAll(".front-face")
 const colorPickers = document.querySelectorAll(".color-picker input")
+const selectorTypes = {
+    "color-picker-card": "--primary-card-color",
+    "color-picker-card-open": "--primary-open-color",
+    "color-picker-card-found": "--primary-found-color",
+}
 const imageUrls = {
     None: null,
     Random: "https://picsum.photos/200",
     Dogs: "https://dog.ceo/api/breeds/image/random",
-    Cats: "https://api.thecatapi.com/v1/images/search"
+    Cats: "https://api.thecatapi.com/v1/images/search",
 };
 let value;
 
 // Color picker
-
-const selectorTypes = {
-    "color-picker-card": "--primary-card-color",
-    "color-picker-card-open": "--primary-open-color",
-    "color-picker-card-found": "--primary-found-color"
-}
 
 function changeColor() {
     document.documentElement.style.setProperty(selectorTypes[this.id.toString()], this.value);
