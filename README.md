@@ -17,7 +17,6 @@ Elk onderdeel van het memory-spel wordt met een cijfer beoordeeld. Het eindcijfe
 Installatie van de opdrachten:
 
 ```bash
-  cd my-project
-  php -S localhost:8000
+  gewoon absolute path van index.html kopiëren in je browser
 ```
     
