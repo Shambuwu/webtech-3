@@ -95,6 +95,7 @@ function resetGame() {
         hasSecondFlippedCard = false;
         firstCard = null;
         secondCard = null;
+        amountOfFoundCards = 0;
     })
 }
 
