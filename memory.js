@@ -91,12 +91,12 @@ function resetGame() {
     cards.forEach((card) => {
         card.classList.remove("flip", "found")
         card.addEventListener("click", flipCard);
-        hasFlippedCard = false;
-        hasSecondFlippedCard = false;
-        firstCard = null;
-        secondCard = null;
-        amountOfFoundCards = 0;
     })
+    hasFlippedCard = false;
+    hasSecondFlippedCard = false;
+    firstCard = null;
+    secondCard = null;
+    amountOfFoundCards = 0;
 }
 
 resetButton.addEventListener("click", resetGame);
