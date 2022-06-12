@@ -70,6 +70,9 @@ const setFoundCards = () => {
     hasSecondFlippedCard = false;
 
     amountOfFoundCards += 2;
+    if(amountOfFoundCards === 36){
+        displayWinMessage(500);
+    }
 }
 
 const checkMatch = () => {
@@ -78,9 +81,7 @@ const checkMatch = () => {
         setFoundCards()
         return true;
     }
-    if(amountOfFoundCards === 36){
-        displayWinMessage(500);
-    }
+
     return false;
 }
 
