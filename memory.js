@@ -1,6 +1,13 @@
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const cards = document.querySelectorAll(".memory-card");
+const backFaces = document.querySelectorAll(".back-face");
+const resetButton = document.querySelectorAll(".reset-button");
 let randomLetters = [];
 let numberOfCards = 36;
+let hasFlippedCard = false;
+let hasSecondFlippedCard = false;
+let firstCard, secondCard;
+let amountOfFoundCards = 0;
 
 for (let i = 0; randomLetters.length < numberOfCards / 2; i++) {
     let x = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -14,17 +21,9 @@ for (let i = 0; randomLetters.length < numberOfCards / 2; i++) {
 }
 randomLetters = randomLetters.concat(randomLetters);
 
-const cards = document.querySelectorAll(".memory-card");
-const backFaces = document.querySelectorAll(".back-face");
-
 backFaces.forEach((face, index) => {
     face.innerHTML = randomLetters[index];
 })
-
-let hasFlippedCard = false;
-let hasSecondFlippedCard = false;
-let firstCard, secondCard;
-let amountOfFoundCards = 0;
 
 function flipCard() {
     this.removeEventListener("click", flipCard);
@@ -69,7 +68,7 @@ const setFoundCards = () => {
     hasSecondFlippedCard = false;
 
     amountOfFoundCards += 2;
-    if(amountOfFoundCards === 36){
+    if (amountOfFoundCards === 36) {
         displayWinMessage(500);
     }
 }
@@ -79,7 +78,6 @@ const checkMatch = () => {
         setFoundCards()
         return true;
     }
-
     return false;
 }
 
@@ -87,6 +85,19 @@ const displayWinMessage = (timeout) => {
     setTimeout(() => {
         alert("You won!");
     }, timeout);
+}
+
+resetButton[0].addEventListener("click", resetGame);
+
+function resetGame() {
+    cards.forEach((card) => {
+        card.classList.remove("flip", "found")
+        card.addEventListener("click", flipCard);
+        hasFlippedCard = false;
+        hasSecondFlippedCard = false;
+        firstCard = null;
+        secondCard = null;
+    })
 }
 
 cards.forEach(card => {

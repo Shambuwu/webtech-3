@@ -1,6 +1,10 @@
 // Color picker
 
-const selectorTypes = {"color-picker-card": "--primary-card-color", "color-picker-card-open": "--primary-open-color", "color-picker-card-found": "--primary-found-color"}
+const selectorTypes = {
+    "color-picker-card": "--primary-card-color",
+    "color-picker-card-open": "--primary-open-color",
+    "color-picker-card-found": "--primary-found-color"
+}
 const colorPickers = document.querySelectorAll(".color-picker input")
 
 function changeColor() {
@@ -15,18 +19,36 @@ colorPickers.forEach((cp) => {
 
 const imageSelector = document.getElementById("image-selector");
 const frontFaces = document.querySelectorAll(".front-face");
-const imageUrls = {None: null, Random: "https://picsum.photos/200", Dogs: "https://dog.ceo/api/breeds/image/random", Cats: "https://placekitten.com/640/360"};
+const imageUrls = {
+    None: null,
+    Random: "https://picsum.photos/200",
+    Dogs: "https://dog.ceo/api/breeds/image/random",
+    Cats: "https://api.thecatapi.com/v1/images/search"
+};
 
-function changeBackground(imageType) {
-    if (imageUrls[imageType] === null) {
-        frontFaces.forEach((face) => {
-            face.style.backgroundImage = null;
-        })
-        return;
-    }
-
+const setDogImages = () => {
     frontFaces.forEach((face) => {
-        fetch(imageUrls[imageType])
+        fetch(imageUrls.Dogs)
+            .then((response) => response.json())
+            .then((json) => {
+                face.style.backgroundImage = `url(${json.message})`;
+            });
+    })
+}
+
+const setCatImages = () => {
+    frontFaces.forEach((face) => {
+        fetch(imageUrls.Cats)
+            .then((response) => response.json())
+            .then((json) => {
+                face.style.backgroundImage = `url(${json[0].url})`;
+            });
+    })
+}
+
+const setRandomImages = () => {
+    frontFaces.forEach((face) => {
+        fetch(imageUrls.Random)
             .then((response) => response.blob())
             .then((imageBlob) => {
                 let imageUrl = URL.createObjectURL(imageBlob);
@@ -35,11 +57,33 @@ function changeBackground(imageType) {
     })
 }
 
-let value;
+const resetImages = () => {
+    frontFaces.forEach((face) => {
+        face.style.backgroundImage = null;
+    })
+}
 
+function changeBackground(imageType) {
+    switch (imageType) {
+        case imageUrls.None:
+            resetImages();
+            break;
+        case imageUrls.Random:
+            setRandomImages();
+            break;
+        case imageUrls.Dogs:
+            setDogImages()
+            break;
+        case imageUrls.Cats:
+            setCatImages();
+            break;
+    }
+}
+
+let value;
 imageSelector.addEventListener("change", () => {
     value = imageSelector.options[imageSelector.selectedIndex].value;
-    changeBackground(value);
+    changeBackground(imageUrls[value]);
 })
 
 
