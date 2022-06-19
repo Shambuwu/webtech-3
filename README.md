@@ -18,7 +18,7 @@ Installatie van de opdrachten:
 
 ```bash
     cd webtech-3
-    #start een webserver in deze directory
-    php -S localhost:3000
+    #start een webserver op port 80.
+    php -S localhost:80
 ```
     
