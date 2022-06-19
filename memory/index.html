@@ -18,10 +18,11 @@
             <a href="/memory" role="button">Memory</a>
             <div class="navbar-user-options" style="float: right;">
                 <a href="/login" role="button">Login</a>
-                <a href="/registration" role="button">Registration</a>
+                <a href="/registration" role="button">Registratie</a>
             </div>
             <div class="navbar-user-logout" style="display: none; float: right;">
-                <a onclick="logOut()" role="button">Logout</a>
+                <a href="/user_settings" role="button">Instellingen</a>
+                <a href="/" onclick="logOut()" role="button">Uitloggen</a>
             </div>
         </div>
     </nav>
@@ -195,44 +196,32 @@
                 <li role="listitem"></li>
                 <li role="listitem"></li>
             </ol>
-            <div class="memory-information">
-                <p class="bold">Average time: 5</p>
-                <br>
-                <p class="bold">Plaatjes op Kaarten:
-                    <label>
-                        <select class="image-selector" id="image-selector" role="combobox" name="card-images">
-                            <option value="None" selected>Geen plaatjes</option>
-                            <option value="Random">Willekeurig</option>
-                            <option value="Dogs">Honden</option>
-                            <option value="Cats">Katten</option>
-                        </select>
-                    </label>
-                </p>
-                <p class="bold">Afmeting bord:
-                    <label>
-                        <select role="combobox" name="board-size">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option selected>6</option>
-                        </select>
-                    </label>
-                </p>
-            </div>
-            <div class="selectors">
-                <div class="color-picker">
-                    <label class="bold" aria-label="Kaartkleur bevestigen selector">Kaartkleur</label>
-                    <input id="color-picker-card" type="color" name="cardColor" value="#CCFFE6">
+            <div class="settings" style="display: inline-block;">
+                <div class="memory-information">
+                    <p class="bold">Plaatjes op Kaarten:
+                        <label>
+                            <select class="image-selector" id="image-selector" role="combobox" name="card-images">
+                                <option value="None" selected>Geen plaatjes</option>
+                                <option value="Random">Willekeurig</option>
+                                <option value="Dogs">Honden</option>
+                                <option value="Cats">Katten</option>
+                            </select>
+                        </label>
+                    </p>
                 </div>
-                <div class="color-picker">
-                    <label class="bold" aria-label="Open kaartkleur selector">Open</label>
-                    <input id="color-picker-card-open" type="color" name="cardColor" value="#FF8C8C">
-                </div>
-                <div class="color-picker">
-                    <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>
-                    <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
+                <div class="selectors">
+                    <div class="color-picker">
+                        <label class="bold" aria-label="Kaartkleur bevestigen selector">Kaartkleur</label>
+                        <input id="color-picker-card" type="color" name="cardColor" value="#CCFFE6">
+                    </div>
+                    <div class="color-picker">
+                        <label class="bold" aria-label="Open kaartkleur selector">Open</label>
+                        <input id="color-picker-card-open" type="color" name="cardColor" value="#FF8C8C">
+                    </div>
+                    <div class="color-picker">
+                        <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>
+                        <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
+                    </div>
                 </div>
             </div>
             <button class="reset-button">Nieuw Spel</button>

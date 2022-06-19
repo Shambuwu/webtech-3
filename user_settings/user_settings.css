@@ -1,0 +1,22 @@
+main {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.color-picker label {
+    width: 100px;
+    display: inline-block;
+}
+
+.color-picker input {
+    width: 200px;
+}
+
+.email-changer {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 5px;
+}

@@ -1,6 +1,8 @@
 const imageSelector = document.getElementById("image-selector");
 const frontFaces = document.querySelectorAll(".front-face")
 const colorPickers = document.querySelectorAll(".color-picker input")
+const settings = document.querySelector(".settings");
+const id = localStorage.getItem("id");
 const selectorTypes = {
     "color-picker-card": "--primary-card-color",
     "color-picker-card-open": "--primary-open-color",
@@ -13,6 +15,26 @@ const imageUrls = {
     Cats: "https://api.thecatapi.com/v1/images/search",
 };
 let value;
+
+// Check of de user ingelogd is. Zo ja, verstop dan de settings.
+// Laad inplaats daarvan de settings van de user repository.
+
+if (localStorage.getItem("token") !== null) {
+    settings.style.display = "none";
+    fetch(`http://localhost:8000/api/player/${id}/preferences`, {
+        method: "get",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+        },
+    }).then((result) => {
+        return result.json()
+    }).then((r) => {
+        console.log(r);
+        if(r.color_closed !== "") document.documentElement.style.setProperty(selectorTypes["color-picker-card"], r.color_closed);
+        if(r.color_found !== "") document.documentElement.style.setProperty(selectorTypes["color-picker-card-found"], r.color_found);
+        if(r.preferred_api !== "") changeBackground(imageUrls[r.preferred_api]);
+    });
+}
 
 // Color picker
 

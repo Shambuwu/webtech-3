@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./user_settings/user_settings.css">
+    <script src="./modules/navbar.js" async></script>
+    <script src="./user_settings/user_settings.js" async></script>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main">
+        <div class="navbar-right">
+            <a href="/" role="button">Home</a>
+            <a href="/memory" role="button">Memory</a>
+            <div class="navbar-user-options" style="float: right;">
+                <a href="/login" role="button">Login</a>
+                <a href="/registration" role="button">Registratie</a>
+            </div>
+            <div class="navbar-user-logout" style="display: none; float: right;">
+                <a href="/user_settings" role="button">Instellingen</a>
+                <a href="/" onclick="logOut()" role="button">Uitloggen</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="memory-information">
+            <p class="bold">Plaatjes op Kaarten:
+                <label>
+                    <select class="image-selector" id="image-selector" role="combobox" name="card-images">
+                        <option value="None" selected>Geen plaatjes</option>
+                        <option value="Random">Willekeurig</option>
+                        <option value="Dogs">Honden</option>
+                        <option value="Cats">Katten</option>
+                    </select>
+                </label>
+            </p>
+        </div>
+        <div class="selectors">
+            <div class="color-picker">
+                <label class="bold" aria-label="Gesloten kaartkleur selector">Open</label>
+                <input id="color-picker-card-closed" type="color" name="cardColor" value="#FF8C8C">
+            </div>
+            <div class="color-picker">
+                <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>
+                <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
+            </div>
+        </div>
+        <button class="save-button">OPSLAAN</button>
+        <div class="email-changer">
+            <label class="bold" aria-label="Nieuw e-mailadres">E-mail</label>
+            <input id="new-email" type="text" name="emailField" placeholder="Nieuw e-mailadres">
+        </div>
+        <button id="change-email-button">VERANDER</button>
+    </main>
+</body>
+</html>

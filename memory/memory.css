@@ -38,10 +38,6 @@ p {
     margin: 0;
 }
 
-.memory-information {
-    margin-bottom: 90px;
-}
-
 .hourglass {
     background-color: green;
     margin: 5%;
@@ -123,7 +119,7 @@ p {
 
 .selectors {
     display: inline-block;
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 .color-picker label {
