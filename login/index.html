@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./login/login.css">
+    <script src="./login/login.js" async></script>
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="Main">
@@ -15,7 +16,18 @@
 </nav>
 <main>
     <div style="text-align: center;">
-        <h4>Loginpagina.</h4>
+        <form>
+            <h1>LOGIN</h1>
+            <div class="form-container">
+                <div class="container">
+                    <label><strong>Username</strong></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label><strong>Password</strong></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                </div>
+                <button type="submit"><strong>SIGN UP</strong></button>
+            </div>
+        </form>
     </div>
 </main>
 </body>

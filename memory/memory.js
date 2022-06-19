@@ -95,6 +95,14 @@ const displayWinMessage = (timeout) => {
 }
 
 function resetGame() {
+    randomLetters = shuffle(randomLetters);
+
+    setTimeout(() => {
+        backFaces.forEach((face, index) => {
+            face.innerHTML = randomLetters[index];
+        })
+    }, 200);
+
     cards.forEach((card) => {
         card.classList.remove("flip", "found")
         card.addEventListener("click", flipCard);
