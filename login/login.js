@@ -9,14 +9,23 @@ function postForm() {
 
     console.log(JSON.stringify(submitData));
 
-    fetch("http://localhost:8000/api/login_check", {method:"post", body: JSON.stringify(submitData)})
+    fetch("http://localhost:8000/api/login_check", {
+        method:"post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submitData),
+    })
         .then((response) => {
             if (response.ok) {
-                console.log(response);
-                //location.reload();
+                return response.json();
             } else {
                 throw new Error("Something went wrong.");
             }
+        })
+        .then((result) => {
+            localStorage.setItem("token", "Bearer " + result.token);
+            window.location.replace("http://localhost");
         })
 }
 

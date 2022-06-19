@@ -16,7 +16,7 @@ body {
     padding: 20px 10px;
 }
 
-.navbar a {
+a {
     float: left;
     color: black;
     text-align: center;
@@ -27,7 +27,8 @@ body {
     border-radius: 4px;
 }
 
-.navbar a:hover {
+a:hover {
+    cursor: pointer;
     background-color: #ddd;
     color: black;
 }
