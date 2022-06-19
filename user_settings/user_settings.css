@@ -4,7 +4,15 @@ main {
     margin-right: auto;
 }
 
+.memory-information {
+    border: 1px solid slategray;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
 .color-picker label {
+    margin-top: 20px;
     width: 100px;
     display: inline-block;
 }
@@ -15,8 +23,16 @@ main {
 
 .email-changer {
     margin-top: 20px;
+    border: 1px solid slategray;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 button {
-    margin-top: 5px;
+    display: block;
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
 }

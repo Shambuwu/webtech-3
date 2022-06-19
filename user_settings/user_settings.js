@@ -4,6 +4,7 @@ const closedColorPicker = document.querySelector("#color-picker-card-closed");
 const foundColorPicker = document.querySelector("#color-picker-card-found");
 const imageSelector = document.querySelector("#image-selector");
 const changeEmailButton = document.querySelector("#change-email-button")
+const emailField = document.querySelector(".email-changer input");
 
 function init() {
     closedColorPicker.value = "#FFFFFF";
@@ -37,13 +38,24 @@ function setSettings() {
         },
         body: JSON.stringify(data),
     }).then((response) => {
-        console.log(response);
-        // window.location.replace("/memory");
+        location.reload();
     })
 }
 
-function changeEmail() {
-    
+function changeEmail(email) {
+    const data = {
+        id: id,
+        email: emailField.value
+    }
+    fetch(`http://localhost:8000/api/player/${id}/email`, {
+        method: "put",
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+        },
+        body: JSON.stringify(data),
+    }).then((response) => {
+        location.reload();
+    })
 }
 
 saveButton.addEventListener("click", setSettings);

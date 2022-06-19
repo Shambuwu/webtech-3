@@ -11,7 +11,7 @@ function postForm() {
         .then((response) => {
             if (response.ok) {
                 console.log(response);
-                location.reload();
+                window.location.replace("/");
             } else {
                 throw new Error("Something went wrong.");
             }

@@ -24,6 +24,11 @@
         </div>
     </nav>
     <main>
+        <div class="email-changer">
+            <label class="bold" aria-label="Nieuw e-mailadres">E-mail</label>
+            <input id="new-email" type="text" name="emailField" placeholder="Nieuw e-mailadres" required>
+            <button id="change-email-button">VERANDER</button>
+        </div>
         <div class="memory-information">
             <p class="bold">Plaatjes op Kaarten:
                 <label>
@@ -35,23 +40,18 @@
                     </select>
                 </label>
             </p>
-        </div>
-        <div class="selectors">
-            <div class="color-picker">
-                <label class="bold" aria-label="Gesloten kaartkleur selector">Open</label>
-                <input id="color-picker-card-closed" type="color" name="cardColor" value="#FF8C8C">
+            <div class="selectors">
+                <div class="color-picker">
+                    <label class="bold" aria-label="Gesloten kaartkleur selector">Gesloten kaartkleur</label>
+                    <input id="color-picker-card-closed" type="color" name="cardColor" value="#FF8C8C">
+                </div>
+                <div class="color-picker">
+                    <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden kaartkleur</label>
+                    <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
+                </div>
             </div>
-            <div class="color-picker">
-                <label class="bold" aria-label="Gevonden kaartkleur selector">Gevonden</label>
-                <input id="color-picker-card-found" type="color" name="cardColor" value="#800080">
-            </div>
+            <button class="save-button">OPSLAAN</button>
         </div>
-        <button class="save-button">OPSLAAN</button>
-        <div class="email-changer">
-            <label class="bold" aria-label="Nieuw e-mailadres">E-mail</label>
-            <input id="new-email" type="text" name="emailField" placeholder="Nieuw e-mailadres">
-        </div>
-        <button id="change-email-button">VERANDER</button>
     </main>
 </body>
 </html>

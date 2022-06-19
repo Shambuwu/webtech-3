@@ -26,7 +26,7 @@ function postForm() {
         .then((result) => {
             localStorage.setItem("token", result.token);
             setLocalUserId(data.get("username")).then(() => {
-                window.location.replace("http://localhost");
+                window.location.replace("/");
             });
         })
 }

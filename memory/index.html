@@ -32,12 +32,9 @@
             <header class="memory-score">
                 <div class="memory-score-content">
                     <h1>Javascript Memory</h1>
-                    <p>Time spent: 0<br/>
-                        Amount of pairs found:<br/>
-                        Time remaining: 999</p>
-                    <div class="hourglass-casing">
-                        <div class="hourglass"></div>
-                    </div>
+                    <p id="counter">Time spent: 0</p>
+                    <p id="found-pairs">Amount of pairs found:</p>
+                    <p id="remaining-time">Time remaining: 999</p>
                 </div>
             </header>
             <div class="memory-grid">
@@ -190,7 +187,7 @@
         <aside class="memory-scoreboard">
             <p class="bold">Top vijf</p>
             <ol class="top-five" role="list" aria-expanded="true">
-                <li role="listitem">Fetching data<span id="wait">.</span></li>
+                <li role="listitem"><span id="fetching">Fetching data.</span></li>
                 <li role="listitem"></li>
                 <li role="listitem"></li>
                 <li role="listitem"></li>
