@@ -20,6 +20,5 @@ Installatie van de opdrachten:
     cd webtech-3
     #start een webserver op port 80.
     php -S localhost:80
-    php -S localhost:3000
 ```
     
