@@ -2,12 +2,19 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const cards = document.querySelectorAll(".memory-card");
 const backFaces = document.querySelectorAll(".back-face");
 const resetButton = document.querySelectorAll(".reset-button")[0];
+const counter = document.querySelector("#counter");
+const remainingTime = document.querySelector("#remaining-time");
+const foundPairs = document.querySelector("#found-pairs");
 let randomLetters = [];
 let numberOfCards = 36;
 let hasFlippedCard = false;
 let hasSecondFlippedCard = false;
 let firstCard, secondCard;
 let amountOfFoundCards = 0;
+let count = 0;
+let time = 999;
+
+
 
 for (let i = 0; randomLetters.length < numberOfCards; i++) {
     let x = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -75,6 +82,7 @@ const setFoundCards = () => {
     hasSecondFlippedCard = false;
 
     amountOfFoundCards += 2;
+    foundPairs.innerHTML = "Amount of pairs found: " + amountOfFoundCards;
     if (amountOfFoundCards === 36) {
         displayWinMessage(500);
     }
@@ -89,12 +97,21 @@ const checkMatch = () => {
 }
 
 const displayWinMessage = (timeout) => {
+    clearInterval(interval);
     setTimeout(() => {
         alert("You won!");
     }, timeout);
 }
 
 function resetGame() {
+    randomLetters = shuffle(randomLetters);
+
+    setTimeout(() => {
+        backFaces.forEach((face, index) => {
+            face.innerHTML = randomLetters[index];
+        })
+    }, 200);
+
     cards.forEach((card) => {
         card.classList.remove("flip", "found")
         card.addEventListener("click", flipCard);
@@ -104,6 +121,9 @@ function resetGame() {
     firstCard = null;
     secondCard = null;
     amountOfFoundCards = 0;
+    count = 0;
+    time = 999;
+    foundPairs.innerHTML = "Amount of pairs found: " + amountOfFoundCards;
 }
 
 resetButton.addEventListener("click", resetGame);
@@ -111,3 +131,10 @@ resetButton.addEventListener("click", resetGame);
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
 })
+
+let interval = setInterval(function(){
+    count++;
+    time--;
+    counter.innerHTML = "Time spent: " + count;
+    remainingTime.innerHTML = "Time remaining: " + time;
+}, 1000);
