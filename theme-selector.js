@@ -9,7 +9,7 @@ const selectorTypes = {
 }
 
 let images = new Map();
-const amountOfUniqueImages = 10;
+const uniqueImageCount = 10;
 const imageApis = {
     None: {
         url: null,
@@ -29,7 +29,7 @@ async function fetchImages(imageApis) {
     for (const api of Object.keys(imageApis)) {
         if (api.toLowerCase() === "none") continue;
         let imageArray = [];
-        for (let i = 0; i < amountOfUniqueImages; i++) {
+        for (let i = 0; i < uniqueImageCount; i++) {
             await fetch(imageApis[api].url)
                 .then((r) => {
                     if(api.toLowerCase() === "random") return r.blob();
@@ -41,7 +41,6 @@ async function fetchImages(imageApis) {
                     if (api.toLowerCase() === "random") imageArray.push(URL.createObjectURL(data))
                 })
         }
-        console.log(imageArray);
         images.set(api, imageArray);
     }
 }
@@ -74,19 +73,19 @@ colorPickers.forEach((cp) => {
 
 const setDogImages = () => {
     frontFaces.forEach((face) => {
-        face.style.backgroundImage = `url(${images.get("Dogs")[getRandomInt(amountOfUniqueImages)]})`;
+        face.style.backgroundImage = `url(${images.get("Dogs")[getRandomInt(uniqueImageCount)]})`;
     })
 }
 
 const setCatImages = () => {
     frontFaces.forEach((face) => {
-        face.style.backgroundImage = `url(${images.get("Cats")[getRandomInt(amountOfUniqueImages)]})`;
+        face.style.backgroundImage = `url(${images.get("Cats")[getRandomInt(uniqueImageCount)]})`;
     })
 }
 
 const setRandomImages = () => {
     frontFaces.forEach((face) => {
-        face.style.backgroundImage = `url(${images.get("Random")[getRandomInt(amountOfUniqueImages)]})`;
+        face.style.backgroundImage = `url(${images.get("Random")[getRandomInt(uniqueImageCount)]})`;
     })
 }
 
