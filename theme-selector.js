@@ -54,7 +54,6 @@ if (!localStorage.imageMap) {
 } else {
     images = new Map(JSON.parse(localStorage.imageMap));
     loadingSpinner.style.display = "none";
-    console.log(images);
 }
 
 function getRandomInt(max) {
