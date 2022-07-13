@@ -22,7 +22,6 @@ const imageApis = {
         url: "https://api.thecatapi.com/v1/images/search"
     },
 };
-let value;
 
 async function fetchImages(imageApis) {
     for (const api of Object.keys(imageApis)) {
@@ -105,7 +104,7 @@ function changeBackground(imageType) {
 }
 
 imageSelector.addEventListener("change", () => {
-    value = imageSelector.options[imageSelector.selectedIndex].value;
+    let value = imageSelector.options[imageSelector.selectedIndex].value;
     changeBackground(imageApis[value]);
 })
 
