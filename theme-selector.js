@@ -45,15 +45,17 @@ async function fetchImages(imageApis) {
     }
 }
 
-if (!localStorage.getItem("images")) {
+if (!localStorage.imageMap) {
     fetchImages(imageApis).then(() => {
         loadingSpinner.style.display = "none";
+        localStorage.imageMap = JSON.stringify(Array.from(images.entries()));
     });
-    localStorage.setItem("images", images);
 } else {
-    images = localStorage.getItem("images");
+    images = new Map(JSON.parse(localStorage.imageMap));
     loadingSpinner.style.display = "none";
 }
+
+console.log(JSON.stringify(Array.from(images.entries())));
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
