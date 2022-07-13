@@ -18,10 +18,10 @@ const imageApis = {
         url: "https://picsum.photos/200",
     },
     Dogs: {
-        url: "https://dog.ceo/api/breeds/image/random"
+        url: "https://dog.ceo/api/breeds/image/random",
     },
     Cats: {
-        url: "https://api.thecatapi.com/v1/images/search"
+        url: "https://api.thecatapi.com/v1/images/search",
     },
 };
 
