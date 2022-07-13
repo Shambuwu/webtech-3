@@ -25,6 +25,7 @@ const imageApis = {
     },
 };
 
+
 async function fetchImages(imageApis) {
     for (const api of Object.keys(imageApis)) {
         if (api.toLowerCase() === "none") continue;
@@ -32,13 +33,13 @@ async function fetchImages(imageApis) {
         for (let i = 0; i < uniqueImageCount; i++) {
             await fetch(imageApis[api].url)
                 .then((r) => {
-                    if(api.toLowerCase() === "random") return r.blob();
+                    if (api.toLowerCase() === "random") return r;
                     return r.json()
                 })
                 .then((data) => {
                     if (api.toLowerCase() === "cats") imageArray.push(data[0].url);
                     if (api.toLowerCase() === "dogs") imageArray.push(data.message);
-                    if (api.toLowerCase() === "random") imageArray.push(URL.createObjectURL(data))
+                    if (api.toLowerCase() === "random") imageArray.push(data.url)
                 })
         }
         images.set(api, imageArray);
@@ -53,9 +54,8 @@ if (!localStorage.imageMap) {
 } else {
     images = new Map(JSON.parse(localStorage.imageMap));
     loadingSpinner.style.display = "none";
+    console.log(images);
 }
-
-console.log(JSON.stringify(Array.from(images.entries())));
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
