@@ -106,8 +106,6 @@ function resetGame() {
     amountOfFoundCards = 0;
 }
 
-console.log("test");
-
 resetButton.addEventListener("click", resetGame);
 
 cards.forEach(card => {

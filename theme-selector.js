@@ -6,13 +6,50 @@ const selectorTypes = {
     "color-picker-card-open": "--primary-open-color",
     "color-picker-card-found": "--primary-found-color",
 }
-const imageUrls = {
-    None: null,
-    Random: "https://picsum.photos/200",
-    Dogs: "https://dog.ceo/api/breeds/image/random",
-    Cats: "https://api.thecatapi.com/v1/images/search",
+const images = new Map();
+const amountOfUniqueImages = 10;
+const imageApis = {
+    None: {
+        url: null,
+    },
+    Random: {
+        url: "https://picsum.photos/200",
+    },
+    Dogs: {
+        url: "https://dog.ceo/api/breeds/image/random"
+    },
+    Cats: {
+        url: "https://api.thecatapi.com/v1/images/search"
+    },
 };
 let value;
+
+async function fetchImages(imageApis) {
+    for (const api of Object.keys(imageApis)) {
+        if (api.toLowerCase() === "none") continue;
+        let imageArray = [];
+        for (let i = 0; i < amountOfUniqueImages; i++) {
+            await fetch(imageApis[api].url)
+                .then((r) => {
+                    if(api.toLowerCase() === "random") return r.blob();
+                    return r.json()
+                })
+                .then((data) => {
+                    if (api.toLowerCase() === "cats") imageArray.push(data[0].url);
+                    if (api.toLowerCase() === "dogs") imageArray.push(data.message);
+                    if (api.toLowerCase() === "random") imageArray.push(URL.createObjectURL(data))
+                })
+        }
+        console.log(imageArray);
+        images.set(api, imageArray);
+    }
+}
+
+fetchImages(imageApis).then();
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 // Color picker
 
@@ -28,32 +65,19 @@ colorPickers.forEach((cp) => {
 
 const setDogImages = () => {
     frontFaces.forEach((face) => {
-        fetch(imageUrls.Dogs)
-            .then((response) => response.json())
-            .then((json) => {
-                face.style.backgroundImage = `url(${json.message})`;
-            });
+        face.style.backgroundImage = `url(${images.get("Dogs")[getRandomInt(amountOfUniqueImages)]})`;
     })
 }
 
 const setCatImages = () => {
     frontFaces.forEach((face) => {
-        fetch(imageUrls.Cats)
-            .then((response) => response.json())
-            .then((json) => {
-                face.style.backgroundImage = `url(${json[0].url})`;
-            });
+        face.style.backgroundImage = `url(${images.get("Cats")[getRandomInt(amountOfUniqueImages)]})`;
     })
 }
 
 const setRandomImages = () => {
     frontFaces.forEach((face) => {
-        fetch(imageUrls.Random)
-            .then((response) => response.blob())
-            .then((imageBlob) => {
-                let imageUrl = URL.createObjectURL(imageBlob);
-                face.style.backgroundImage = `url(${imageUrl})`;
-            });
+        face.style.backgroundImage = `url(${images.get("Random")[getRandomInt(amountOfUniqueImages)]})`;
     })
 }
 
@@ -65,16 +89,16 @@ const resetImages = () => {
 
 function changeBackground(imageType) {
     switch (imageType) {
-        case imageUrls.None:
+        case imageApis.None:
             resetImages();
             break;
-        case imageUrls.Random:
+        case imageApis.Random:
             setRandomImages();
             break;
-        case imageUrls.Dogs:
+        case imageApis.Dogs:
             setDogImages()
             break;
-        case imageUrls.Cats:
+        case imageApis.Cats:
             setCatImages();
             break;
     }
@@ -82,7 +106,7 @@ function changeBackground(imageType) {
 
 imageSelector.addEventListener("change", () => {
     value = imageSelector.options[imageSelector.selectedIndex].value;
-    changeBackground(imageUrls[value]);
+    changeBackground(imageApis[value]);
 })
 
 
