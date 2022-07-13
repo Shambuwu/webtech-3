@@ -1,12 +1,14 @@
 const imageSelector = document.getElementById("image-selector");
-const frontFaces = document.querySelectorAll(".front-face")
-const colorPickers = document.querySelectorAll(".color-picker input")
+const frontFaces = document.querySelectorAll(".front-face");
+const colorPickers = document.querySelectorAll(".color-picker input");
+const loadingSpinner = document.querySelector("#loading");
 const selectorTypes = {
     "color-picker-card": "--primary-card-color",
     "color-picker-card-open": "--primary-open-color",
     "color-picker-card-found": "--primary-found-color",
 }
-const images = new Map();
+
+let images = new Map();
 const amountOfUniqueImages = 10;
 const imageApis = {
     None: {
@@ -44,7 +46,15 @@ async function fetchImages(imageApis) {
     }
 }
 
-fetchImages(imageApis).then();
+if (!localStorage.getItem("images")) {
+    fetchImages(imageApis).then(() => {
+        loadingSpinner.style.display = "none";
+    });
+    localStorage.setItem("images", images);
+} else {
+    images = localStorage.getItem("images");
+    loadingSpinner.style.display = "none";
+}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
